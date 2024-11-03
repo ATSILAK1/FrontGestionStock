@@ -1,0 +1,22 @@
+<form [formGroup]="produitForm" (ngSubmit)="NewProduitSubmit()" >
+
+    <div class ='form-control'>
+        <label for="Prix">Prix</label>
+        <input id="prix" type="text" formControlName='prix' >
+    </div>
+    <div class ='form-control'>
+        <label for="nom">Nom</label>
+        <input id="nom" type="text" formControlName="nom" >
+    </div>
+    <div class ='form-control'>
+        <label for="description">description</label>
+        <input id="description" type="description" formControlName="description" > 
+    </div>
+    <div class ='form-control'>
+        <label for="quantite">description</label>
+        <input id="quantite" type="text" formControlName="quantite" > 
+    </div>
+
+<button type="submit">Ajouter</button>
+</form>
+
