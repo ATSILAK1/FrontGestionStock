@@ -1,0 +1,52 @@
+/* Conteneur du formulaire */
+form {
+    max-width: 500px; /* Largeur maximale pour centrer le formulaire */
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Style des champs de formulaire avec Bootstrap */
+  .form-control {
+    margin-bottom: 15px;
+  }
+  
+  /* Style pour les labels */
+  .form-control label {
+    font-weight: bold;
+    color: #495057;
+  }
+  
+  /* Style pour les champs de saisie */
+  .form-control input[type="text"],
+  .form-control input[type="number"] {
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .form-control input[type="text"]:focus,
+  .form-control input[type="number"]:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    outline: none;
+  }
+  
+  /* Style pour le bouton de soumission */
+  .example-button-row {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .example-button-row .btn-success {
+    font-weight: bold;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .example-button-row .btn-success:hover {
+    background-color: #218838;
+  }
+  

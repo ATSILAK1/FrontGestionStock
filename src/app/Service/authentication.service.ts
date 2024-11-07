@@ -62,6 +62,10 @@ export class AuthenticationService implements OnInit {
     return !!localStorage.getItem(currentTokenVariable); // Vérifier la présence du token
   }
 
+  isAdmin():boolean{
+    return this.GetCurrentUser()?.isAdmin!
+  }
+
   GetCurrentUser() : User | null
   {
       if (localStorage.getItem(currentUserVariable) == null)

@@ -1,0 +1,36 @@
+/* Styles généraux du formulaire */
+form {
+    max-width: 400px;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+/* Styles pour les conteneurs de chaque champ */
+.form-control {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Style pour les labels */
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+/* Style pour les champs de saisie */
+input[type="text"], input[type="description"] {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+/* Changement de couleur des bordures au focus */
+input[type="text"]:focus, input[type="description"]:focus {
+    border-color: #007bff;
+    outline: none;
+}

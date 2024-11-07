@@ -1,22 +1,33 @@
-<form [formGroup]="produitForm" (ngSubmit)="NewProduitSubmit()" >
 
-    <div class ='form-control'>
-        <label for="Prix">Prix</label>
-        <input id="prix" type="text" formControlName='prix' >
-    </div>
-    <div class ='form-control'>
-        <label for="nom">Nom</label>
-        <input id="nom" type="text" formControlName="nom" >
-    </div>
-    <div class ='form-control'>
-        <label for="description">description</label>
-        <input id="description" type="description" formControlName="description" > 
-    </div>
-    <div class ='form-control'>
-        <label for="quantite">description</label>
-        <input id="quantite" type="text" formControlName="quantite" > 
-    </div>
+<app-addproduit></app-addproduit>
+<div>
+    {{succesOuEchec}}
+</div>
 
-<button type="submit">Ajouter</button>
-</form>
+<table>
+    <tr>
+        <th>id</th>
+        <th>nom</th>
+        <th>prix</th>
+        <th>description</th>
+        <th>stock</th>
+        <th>action</th>
+    </tr>
+    @for (item of properties ; track $index) 
+    {
+        <tr>
+            <td>{{item.id}}</td>
+            <td>{{item.nom}}</td>
+            <td>{{item.prix}} DH</td>
+            <td>{{item.description}}</td>
+            <td>{{item.quantiteStock}} U</td>
+            <td> <button class="btn btn-danger" (click)="supprimerProduit(item.id)"> supprimer</button>
+                <a routerLink="/produit/edit/{{item.id}}" class="btn btn-success"> Modifier </a>
+            </td>
+
+        </tr>
+    }
+    <Button class="btn " (click)="fetchPrevious()"> < </Button>
+    <button class="btn" (click)="fetchNext()"> ></button>
+</table>
 

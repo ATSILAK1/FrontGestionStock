@@ -13,4 +13,11 @@ export interface Produit
     prix:number;
     nom:string;
     description:string;
+    quantiteStock:number;
+}
+
+export class Fournisseur
+{
+    nomFournisseur!:string
+    telephoneFournisseur!:string
 }

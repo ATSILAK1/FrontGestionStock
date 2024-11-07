@@ -1,0 +1,39 @@
+<app-navbar></app-navbar>
+<form [formGroup]="fournisseurForm" (ngSubmit)="onSubmit()">
+  
+    <!-- Champ Nom du Fournisseur -->
+    <div class="form-group">
+      <label for="nomFournisseur">Nom du Fournisseur</label>
+      <input
+        type="text"
+        id="nomFournisseur"
+        formControlName="nomFournisseur"
+        class="form-control"
+        placeholder="Entrez le nom du fournisseur"
+      />
+      <!-- Message d'erreur pour le champ Nom du Fournisseur -->
+      <div *ngIf="fournisseurForm.get('nomFournisseur')?.invalid && fournisseurForm.get('nomFournisseur')?.touched" class="text-danger">
+        Le nom du fournisseur est requis.
+      </div>
+    </div>
+  
+    <!-- Champ Téléphone -->
+    <div class="form-group">
+      <label for="tel">Téléphone</label>
+      <input
+        type="tel"
+        id="tel"
+        formControlName="tel"
+        class="form-control"
+        placeholder="Entrez le numéro de téléphone"
+      />
+      <!-- Message d'erreur pour le champ Téléphone -->
+      <div *ngIf="fournisseurForm.get('tel')?.invalid && fournisseurForm.get('tel')?.touched" class="text-danger">
+        Le numéro de téléphone est requis.
+      </div>
+    </div>
+  
+    <!-- Bouton de soumission -->
+    <button type="submit" class="btn btn-primary" [disabled]="fournisseurForm.invalid">Soumettre</button>
+  
+  </form>
