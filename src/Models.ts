@@ -21,3 +21,11 @@ export class Fournisseur
     nomFournisseur!:string
     telephoneFournisseur!:string
 }
+
+export class TransactionAchat
+ {
+    id!: number; // Identifiant de la transaction
+    fournisseur!: string; // Nom du fournisseur
+    date!: Date; // Date de la transaction
+    montantTotal!: number; // Montant total de la transaction
+    produits!:number;}

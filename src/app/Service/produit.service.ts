@@ -13,6 +13,11 @@ export class ProduitService {
   messageSuccesOrError = ""
   constructor(private _http: HttpClient) { }
 
+  searchOptions(query: string): Observable<any[]> {
+    // Remplace 'https://api.example.com/search' par l'URL de ton API
+    return this._http.get<any[]>(this._UrlProduit+`/autocomplete?nom=`+query);
+  }
+
   GetAllProduit():Observable<any>
   {
     return  this._http.get(this._UrlProduit);
