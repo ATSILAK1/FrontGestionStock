@@ -14,6 +14,6 @@ import { MainpageComponent } from './components/Home/mainpage/mainpage.component
 export class AppComponent {
   title = 'FrontGestionStock';
 
-
+  
 
 }

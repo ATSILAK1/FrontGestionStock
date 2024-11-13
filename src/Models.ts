@@ -24,8 +24,18 @@ export class Fournisseur
 
 export class TransactionAchat
  {
-    id!: number; // Identifiant de la transaction
-    fournisseur!: string; // Nom du fournisseur
-    date!: Date; // Date de la transaction
-    montantTotal!: number; // Montant total de la transaction
-    produits!:number;}
+    fournisseurTransactionAchat!: number ; // Nom du fournisseur
+    informationTransaction!: string ;
+    quantiteTransaction!:number;
+    dateTransaction!: Date; // Date de la transaction
+    montantTransaction!: number; // Montant total de la transaction
+    produitTransaction!:number;}
+
+export class TransactionVente
+{
+    informationTransaction!: string ;
+    quantiteTransaction!:number;
+    dateTransaction!: Date; // Date de la transaction
+    montantTransaction!: number; // Montant total de la transaction
+    produitTransaction!:number;
+}

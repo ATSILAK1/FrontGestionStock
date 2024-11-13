@@ -4,11 +4,12 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { FournisseurService } from '../../../Service/fournisseur.service';
 import { Fournisseur } from '../../../../Models';
 import { NavbarComponent } from "../../Home/navbar/navbar.component";
+import { DisplayfournisseurComponent } from '../displayfournisseur/displayfournisseur.component';
 
 @Component({
   selector: 'app-add-fournisseur',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, NavbarComponent],
+  imports: [CommonModule, ReactiveFormsModule, NavbarComponent, DisplayfournisseurComponent],
   templateUrl: './add-fournisseur.component.html',
   styleUrl: './add-fournisseur.component.css'
 })

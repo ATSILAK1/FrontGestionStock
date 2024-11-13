@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 import { ProduitService } from '../../../Service/produit.service';
+import { DisplayfournisseurComponent } from "../../fournisseur/displayfournisseur/displayfournisseur.component";
 
 @Component({
   selector: 'app-addproduit',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, DisplayfournisseurComponent],
   templateUrl: './addproduit.component.html',
   styleUrl: './addproduit.component.css'
 })

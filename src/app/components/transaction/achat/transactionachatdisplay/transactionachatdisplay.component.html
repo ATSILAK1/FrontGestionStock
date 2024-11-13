@@ -1,0 +1,38 @@
+<div class="container">
+    <h2>Liste des Transactions d'Achat</h2>
+  
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Produit</th>
+          <th>Fournisseur</th>
+          <th>Informations</th>
+          <th>Quantité</th>
+          <th>Montant</th>
+          <th>Date de la Transaction</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        @for (transaction of transactionList; track $index) {
+        <tr >
+          <td>{{ transaction.productData.nom }}</td>
+          <td>{{ transaction.fournisseurData.nomFournisseur }}</td>
+          <td>{{ transaction.informationTransaction }}</td>
+          <td>{{ transaction.quantiteTransaction }}</td>
+          <td>{{ transaction.montantTransaction  }}</td>
+          <td>{{ transaction.dateTransaction  }}</td>
+          <td>
+            <button class="btn btn-danger" (click)="SupprimerTransacationAchat(transaction.id)">Supprimer</button>
+          </td>  
+        </tr>}
+      </tbody>
+    </table>
+  </div>
+<div>
+  <button class="btn btn-primary" (click)="fetchPrevious()"><</button>
+
+  
+  <button class="btn btn-primary" (click)="fetchNext()">></button>
+</div>

@@ -29,5 +29,12 @@ export class FournisseurService {
   {
     return this._httpClient.post(this._urlFournisseur,fournisseur)
   }
-  
+  getProperties(APIUrl: string): Observable<any> {
+    return this._httpClient.get(APIUrl);
+  }
+
+  searchOptions(query: string): Observable<any[]> {
+    // Remplace 'https://api.example.com/search' par l'URL de ton API
+    return this._httpClient.get<any[]>(this._urlFournisseur+`/autocomplete?nomfournisseur=`+query);
+  }
 } 
