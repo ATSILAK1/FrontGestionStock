@@ -1,1 +1,110 @@
+<app-navbar></app-navbar>
+<div class="flex justify-content-center">
+  <p-button (onClick)="ShowDialogBox()" label="Ajouter Une Vente" />
+  <p-dialog
+    header="Ajouter Produit"
+    [modal]="true"
+    [(visible)]="isVisible"
+    [style]="{ width: '25rem' }"
+  >
+    <label>{{ succesOrError }}</label>
+    <form [formGroup]="formTransacationVente" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="informationTransaction"
+          >Information sur la Transaction</label
+        >
 
+        <input
+          type="text"
+          id="informationTransaction"
+          class="form-control"
+          formControlName="informationTransaction"
+          placeholder="Entrez des informations"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="date">Date de la Transaction</label>
+        <input
+          type="datetime-local"
+          id="date"
+          class="form-control"
+          formControlName="date"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="quantiteTransaction">Quantité</label>
+        <input
+          type="number"
+          id="quantiteTransaction"
+          class="form-control"
+          formControlName="quantiteTransaction"
+          placeholder="Entrez la quantité"
+        />
+        <div
+          *ngIf="
+            formTransacationVente.get('quantiteTransaction')?.invalid &&
+            formTransacationVente.get('quantiteTransaction')?.touched
+          "
+          class="text-danger"
+        >
+          La quantité est requise.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="produitTransaction">Produit</label>
+        <br />
+        <p-autoComplete
+          formControlName="produitTransaction"
+          [(ngModel)]="selectedOption"
+          [suggestions]="filteredOptions"
+          (completeMethod)="search($event)"
+          field="nom"
+          [dropdown]="true"
+          placeholder="Type to search..."
+        >
+        </p-autoComplete>
+        <div
+          *ngIf="
+            formTransacationVente.get('produitTransaction')?.invalid &&
+            formTransacationVente.get('produitTransaction')?.touched
+          "
+          class="text-danger"
+        >
+          Le produit est requis.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="prixUnitaireTransaction">Prix Unitaire</label>
+        <input
+          type="number"
+          id="prixUnitaireTransaction"
+          class="form-control"
+          formControlName="prixUnitaireTransaction"
+        />
+      </div>
+
+      <span>
+        Prix Total :
+        {{
+          formTransacationVente.controls.prixUnitaireTransaction.value! *
+            formTransacationVente.controls.quantiteTransaction.value!
+        }}</span
+      >
+      <br />
+      <br />
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="formTransacationVente.invalid"
+      >
+        Enregistrer la Transaction
+      </button>
+    </form>
+  </p-dialog>
+
+  <app-displaytransacationvente></app-displaytransacationvente>
+</div>

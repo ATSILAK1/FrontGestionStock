@@ -21,10 +21,10 @@ export const isLoggedInGuard: CanActivateFn = (route, state) => {
 export const isAdminInGuard: CanActivateFn = (route,state ) =>
 {
   const authService = inject(AuthenticationService); // Injection du service
-  const isAdmin = authService.isAdmin(); // Vérifiez si l'utilisateur est connecté
+  const isAdmin = authService.GetCurrentUser()?.isAdmin; 
   const router = inject(Router)
 
-  if (!isAdmin)
+  if (isAdmin)
   {
     router.navigate(['/home'])
     return false;

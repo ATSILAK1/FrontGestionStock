@@ -1,33 +1,46 @@
-
 <app-addproduit></app-addproduit>
+<app-updateproduit></app-updateproduit>
 <div>
-    {{succesOuEchec}}
+  {{ succesOuEchec }}
 </div>
-
-<table>
+<div class="container">
+  <table class="table table-bordered">
     <tr>
-        <th>id</th>
-        <th>nom</th>
-        <th>prix</th>
-        <th>description</th>
-        <th>stock</th>
-        <th>action</th>
+      <th>Id</th>
+      <th>Nom</th>
+      <th>Prix</th>
+      <th>Description</th>
+      <th>Stock</th>
+      <th>Action</th>
     </tr>
-    @for (item of properties ; track $index) 
-    {
-        <tr>
-            <td>{{item.id}}</td>
-            <td>{{item.nom}}</td>
-            <td>{{item.prix}} DH</td>
-            <td>{{item.description}}</td>
-            <td>{{item.quantiteStock}} U</td>
-            <td> <button class="btn btn-danger" (click)="supprimerProduit(item.id)"> supprimer</button>
-                <a routerLink="/produit/edit/{{item.id}}" class="btn btn-success"> Modifier </a>
-            </td>
-
-        </tr>
+    @for (item of properties ; track $index) {
+    <tr>
+      <td>{{ item.id }}</td>
+      <td>{{ item.nom }}</td>
+      <td>{{ item.prix }} DH</td>
+      <td>{{ item.description }}</td>
+      <td>{{ item.quantiteStock }} U</td>
+      <td>
+        <div class="action-buttons">
+          <button class="btn btn-danger" (click)="supprimerProduit(item.id)">
+            supprimer
+          </button>
+          <button
+            (click)="ouvrirDialogueModification(item.id)"
+            class="btn btn-success"
+          >
+            modifier
+          </button>
+        </div>
+      </td>
+    </tr>
+    } @empty {
+    <div>Aucun Produit</div>
     }
-    <Button class="btn " (click)="fetchPrevious()"> < </Button>
-    <button class="btn" (click)="fetchNext()"> ></button>
-</table>
+  </table>
+</div>
+<div class="arrows">
+  <button class="btn btn-primary" (click)="fetchPrevious()"><</button>
 
+  <button class="btn btn-primary" (click)="fetchNext()">></button>
+</div>

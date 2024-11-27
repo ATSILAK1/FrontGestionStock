@@ -6,14 +6,16 @@ import { UpdateproduitComponent } from './components/produit/updateproduit/updat
 import { AddFournisseurComponent } from './components/fournisseur/add-fournisseur/add-fournisseur.component';
 
 import { TransactionachataddComponent } from './components/transaction/achat/transactionachatadd/transactionachatadd.component';
+import { TransacationventeaddComponent } from './components/transaction/vente/transacationventeadd/transacationventeadd.component';
 
 export const routes: Routes = [
     // il faut securise le login cas : si on est deja connecter on peut pas y se reloger 
     {path:"login", component:LoginComponent},
     {path:"home",component:MainpageComponent , canActivate : [isLoggedInGuard]},
-    {path:"produit/edit/:id",component:UpdateproduitComponent, canActivate : [isLoggedInGuard]},
+    {path:"produit/edit/:id",component:UpdateproduitComponent, canActivate : [isLoggedInGuard , isAdminInGuard]},
     {path:"fournisseur",component:AddFournisseurComponent, canActivate : [isLoggedInGuard ]},
-    {path:"transactionachat",component:TransactionachataddComponent}
+    {path:"transactionachat",component:TransactionachataddComponent , canActivate:[isLoggedInGuard]},
+    {path:"transactionvente",component:TransacationventeaddComponent , canActivate:[isLoggedInGuard]},
 
    
 ];

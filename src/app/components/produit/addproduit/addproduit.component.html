@@ -1,36 +1,122 @@
-<form [formGroup]="produitForm" (ngSubmit)="NewProduitSubmit()" >
-
-    <div class ='form-control'>
-        <label for="Prix">Prix</label>
-        <input id="prix" type="text" formControlName='prix' >
-    </div>
-    <div class ='form-control'>
-        <label for="nom">Nom</label>
-        <input id="nom" type="text" formControlName="nom" >
-    </div>
-    <div class ='form-control'>
-        <label for="description">description</label>
-        <input id="description" type="description" formControlName="description" > 
-    </div>
-    <div class ='form-control'>
-        <label for="quantite">quantite</label>
-        <input id="quantite" type="text" formControlName="quantite" >
-        
-
-        @if(produitForm.get('quantite')?.errors){
-            <span> </span>
-        } 
-    </div>
-
-    <div class="example-button-row">
-        <button type="submit" class="btn btn-primary">Ajouter</button>
-       
-        
+<div class="flex justify-content-center">
+  <p-button (onClick)="ShowDialogBox()" label="Ajouter Produit" />
+  <p-dialog
+    header="Ajouter Produit"
+    [modal]="true"
+    [(visible)]="isVisible"
+    [style]="{ width: '25rem' }"
+  >
+    <form
+      [formGroup]="produitForm"
+      (ngSubmit)="NewProduitSubmit()"
+      class="p-4 bg-light"
+    >
+      <div class="form-group">
+        <label for="prix">Prix</label>
+        <input
+          id="prix"
+          type="text"
+          formControlName="prix"
+          class="form-control"
+          [ngClass]="{
+            'is-invalid':
+              produitForm.get('prix')?.invalid &&
+              produitForm.get('prix')?.touched
+          }"
+        />
+        <div
+          *ngIf="
+            produitForm.get('prix')?.invalid && produitForm.get('prix')?.touched
+          "
+          class="invalid-feedback"
+        >
+          {{ getErrorMessage("prix") }}
+        </div>
       </div>
 
+      <div class="form-group">
+        <label for="nom">Nom</label>
+        <input
+          id="nom"
+          type="text"
+          formControlName="nom"
+          class="form-control"
+          [ngClass]="{
+            'is-invalid':
+              produitForm.get('nom')?.invalid && produitForm.get('nom')?.touched
+          }"
+        />
+        <div
+          *ngIf="
+            produitForm.get('nom')?.invalid && produitForm.get('nom')?.touched
+          "
+          class="invalid-feedback"
+        >
+          {{ getErrorMessage("nom") }}
+        </div>
+      </div>
 
-</form>
-<div class="ErreurAjout">
-    {{errorAjout}}
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea
+          id="description"
+          formControlName="description"
+          class="form-control"
+          rows="3"
+          [ngClass]="{
+            'is-invalid':
+              produitForm.get('description')?.invalid &&
+              produitForm.get('description')?.touched
+          }"
+        ></textarea>
+        <div
+          *ngIf="
+            produitForm.get('description')?.invalid &&
+            produitForm.get('description')?.touched
+          "
+          class="invalid-feedback"
+        >
+          {{ getErrorMessage("description") }}
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="quantite">Quantité</label>
+        <input
+          id="quantite"
+          type="number"
+          formControlName="quantite"
+          class="form-control"
+          [ngClass]="{
+            'is-invalid':
+              produitForm.get('quantite')?.invalid &&
+              produitForm.get('quantite')?.touched
+          }"
+        />
+        <div
+          *ngIf="
+            produitForm.get('quantite')?.invalid &&
+            produitForm.get('quantite')?.touched
+          "
+          class="invalid-feedback"
+        >
+          {{ getErrorMessage("quantite") }}
+        </div>
+      </div>
+
+      <div class="text-right mt-4">
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="produitForm.invalid"
+        >
+          Ajouter
+        </button>
+      </div>
+    </form>
+
+    <div *ngIf="errorAjout" class="alert alert-danger mt-3">
+      {{ errorAjout }}
+    </div>
+  </p-dialog>
 </div>
-

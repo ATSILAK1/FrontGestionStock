@@ -1,0 +1,49 @@
+/* Ajoute un léger ombrage pour améliorer l'apparence du formulaire */
+form {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Style pour chaque groupe de formulaire pour un espacement vertical */
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  /* Place le label en gras pour une meilleure visibilité */
+  label {
+    font-weight: bold;
+  }
+  
+  /* Largeur personnalisée pour les entrées de texte */
+  .form-control {
+    height: 40px;
+    padding: 0 10px;
+  }
+  
+  /* Améliore le style du bouton de soumission */
+  button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  /* Affiche les messages d'erreur en rouge */
+  .text-danger {
+    font-size: 0.9em;
+  }
+  
+  /* Amélioration de l'apparence de l'autocomplétion */
+  p-autoComplete .ui-autocomplete-panel {
+    max-width: 100%;
+  }
+  
+  /* Réduit l'espace entre les champs d'entrée et les messages d'erreur */
+  .form-group input.ng-invalid.ng-touched {
+    border-color: #dc3545;
+  }
+  

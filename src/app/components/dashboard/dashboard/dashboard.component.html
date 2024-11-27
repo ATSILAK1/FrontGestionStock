@@ -1,0 +1,89 @@
+<div class="row">
+  <div class="col-lg-3 col-md-6">
+    <div class="d-flex">
+      <div class="wrapper">
+        <h3 class="mb-0 font-weight-semibold">{{ results.marge_total }}</h3>
+        <h5 class="mb-0 font-weight-medium text-primary">Marge Total</h5>
+        <p class="mb-0 text-muted"></p>
+      </div>
+      <div class="wrapper my-auto ml-auto ml-lg-4"></div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6 mt-md-0 mt-4">
+    <div class="d-flex">
+      <div class="wrapper">
+        <h3 class="mb-0 font-weight-semibold">
+          @if(results.marge_total_par_jour) {
+          {{ results.marge_total_par_jour }}
+          } @else { 0 }
+        </h3>
+        <h5 class="mb-0 font-weight-medium text-primary">Marge Par jour</h5>
+        <p class="mb-0 text-muted"></p>
+      </div>
+      <div class="wrapper my-auto ml-auto ml-lg-4">
+        <div class="chartjs-size-monitor">
+          <div class="chartjs-size-monitor-expand"><div class=""></div></div>
+          <div class="chartjs-size-monitor-shrink"><div class=""></div></div>
+        </div>
+        <canvas
+          heigth="50"
+          width="100"
+          basechart=""
+          style="display: block"
+          class="chartjs-render-monitor"
+          height="50"
+        ></canvas>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6 mt-md-0 mt-4">
+    <div class="d-flex">
+      <div class="wrapper">
+        <h3 class="mb-0 font-weight-semibold">
+          {{ results.transaction_vente_par_jour }}
+        </h3>
+        <h5 class="mb-0 font-weight-medium text-primary">Nombre vente Jour</h5>
+        <p class="mb-0 text-muted"></p>
+      </div>
+      <div class="wrapper my-auto ml-auto ml-lg-4">
+        <div class="chartjs-size-monitor">
+          <div class="chartjs-size-monitor-expand"><div class=""></div></div>
+          <div class="chartjs-size-monitor-shrink"><div class=""></div></div>
+        </div>
+        <canvas
+          heigth="50"
+          width="100"
+          basechart=""
+          style="display: block"
+          class="chartjs-render-monitor"
+          height="50"
+        ></canvas>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6 mt-md-0 mt-4">
+    <div class="d-flex">
+      <div class="wrapper">
+        <h3 class="mb-0 font-weight-semibold">
+          {{ results.transaction_achat_par_jour }}
+        </h3>
+        <h5 class="mb-0 font-weight-medium text-primary">Nombre Achat Jour</h5>
+        <p class="mb-0 text-muted"></p>
+      </div>
+      <div class="wrapper my-auto ml-auto ml-lg-4">
+        <div class="chartjs-size-monitor">
+          <div class="chartjs-size-monitor-expand"><div class=""></div></div>
+          <div class="chartjs-size-monitor-shrink"><div class=""></div></div>
+        </div>
+        <canvas
+          heigth="50"
+          width="100"
+          basechart=""
+          style="display: block"
+          class="chartjs-render-monitor"
+          height="50"
+        ></canvas>
+      </div>
+    </div>
+  </div>
+</div>

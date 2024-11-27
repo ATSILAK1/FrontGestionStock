@@ -1,1 +1,56 @@
-<p>displaytransacationvente works!</p>
+<div class="container">
+  <h2>Liste des Transactions d'Vente</h2>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Produit</th>
+        <th>Informations</th>
+        <th>Quantité</th>
+        <th>Montant</th>
+        <th>Prix Unitaire</th>
+        <th>Date de la Transaction</th>
+        <th>Marge vente</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (transaction of transactionList; track $index) {
+      <tr>
+        <td>{{ transaction.productData.nom }}</td>
+
+        <td>{{ transaction.informationTransaction }}</td>
+        <td>{{ transaction.quantiteTransaction }}</td>
+        <td>{{ transaction.montantTransaction }}</td>
+        <td>
+          {{ transaction.montantTransaction / transaction.quantiteTransaction }}
+          Dh
+        </td>
+        <td>{{ transaction.dateTransaction }}</td>
+        <td>{{ transaction.margeVente }}</td>
+        <td>
+          <button
+            class="btn btn-danger"
+            (click)="SupprimerTransacationVente(transaction.id)"
+          >
+            Supprimer
+          </button>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>
+<div class="arrows">
+  <button
+    class="btn btn-primary"
+    (click)="fetchPrevious()"
+    [disabled]="previous == ''"
+  >
+    <
+  </button>
+  <span>{{ pageNumber }}</span>
+  <button class="btn btn-primary" (click)="fetchNext()" [disabled]="next == ''">
+    >
+  </button>
+</div>

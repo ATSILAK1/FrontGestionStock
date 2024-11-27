@@ -1,0 +1,128 @@
+/* General Container */
+.container {
+  margin-top: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Styling */
+.container h2 {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #007bff;
+}
+
+/* Table Styling */
+.table {
+  width: 100%;
+  margin-top: 15px;
+  font-size: 16px;
+  border-collapse: collapse;
+}
+
+.table thead th {
+  background-color: #343a40;
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.table tbody td {
+  text-align: center;
+  vertical-align: middle;
+  padding: 10px;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.table tbody tr:hover {
+  background-color: #e9ecef;
+  transition: background-color 0.3s ease;
+}
+
+/* Marge Vente Styling */
+.table tbody td:nth-last-child(2) {
+  font-weight: bold;
+  color: #28a745;
+}
+
+/* Action Button */
+.table tbody .btn-danger {
+  background-color: #dc3545;
+  border: none;
+  color: #fff;
+  font-size: 14px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.table tbody .btn-danger:hover {
+  background-color: #c82333;
+  transform: scale(1.05);
+  box-shadow: 0 4px 6px rgba(220, 53, 69, 0.3);
+}
+
+/* Pagination Arrows */
+.arrows {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  gap: 15px;
+}
+
+.arrows .btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.arrows .btn:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
+
+.arrows .btn:hover:enabled {
+  transform: scale(1.1);
+  box-shadow: 0 4px 6px rgba(0, 123, 255, 0.3);
+}
+
+.arrows span {
+  font-size: 16px;
+  font-weight: bold;
+  color: #007bff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .table {
+    font-size: 14px;
+  }
+
+  .table thead th,
+  .table tbody td {
+    padding: 8px;
+  }
+
+  .arrows .btn {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+  }
+}

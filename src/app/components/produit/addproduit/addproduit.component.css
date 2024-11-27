@@ -3,7 +3,7 @@ form {
     max-width: 400px;
     padding: 20px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 /* Styles pour les conteneurs de chaque champ */
